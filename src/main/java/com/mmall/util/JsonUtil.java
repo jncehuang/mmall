@@ -3,7 +3,6 @@ package com.mmall.util;
 import com.google.common.collect.Lists;
 import com.mmall.pojo.User;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections.BagUtils;
 import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.SerializationConfig;
@@ -11,7 +10,6 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 import org.codehaus.jackson.type.JavaType;
 import org.codehaus.jackson.type.TypeReference;
 import org.springframework.util.StringUtils;
-
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;

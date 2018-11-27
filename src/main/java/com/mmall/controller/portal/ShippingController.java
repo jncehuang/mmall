@@ -33,7 +33,7 @@ public class ShippingController {
 
     @RequestMapping("add.do")
     @ResponseBody
-    public ServerResponse add(HttpServletRequest request,Shipping shipping){
+    public ServerResponse add(HttpServletRequest request, Shipping shipping){
         String loginToken = CookieUtil.readLoginToken(request);
         if (StringUtils.isEmpty(loginToken)){
             return ServerResponse.createByErrorMessage("用户未登陆，无法获取当前用户的信息");
@@ -64,7 +64,7 @@ public class ShippingController {
 
     @RequestMapping("update.do")
     @ResponseBody
-    public ServerResponse update(HttpServletRequest request,Shipping shipping){
+    public ServerResponse update(HttpServletRequest request, Shipping shipping){
         String loginToken = CookieUtil.readLoginToken(request);
         if (StringUtils.isEmpty(loginToken)){
             return ServerResponse.createByErrorMessage("用户未登陆，无法获取当前用户的信息");
@@ -80,7 +80,7 @@ public class ShippingController {
 
     @RequestMapping("select.do")
     @ResponseBody
-    public ServerResponse<Shipping> select(HttpServletRequest request,Integer shippingId){
+    public ServerResponse<Shipping> select(HttpServletRequest request, Integer shippingId){
         String loginToken = CookieUtil.readLoginToken(request);
         if (StringUtils.isEmpty(loginToken)){
             return ServerResponse.createByErrorMessage("用户未登陆，无法获取当前用户的信息");

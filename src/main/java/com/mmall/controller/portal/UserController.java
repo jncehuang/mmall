@@ -52,7 +52,7 @@ public class UserController {
 
     @RequestMapping(value = "logout.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<String> logout(HttpSession session,HttpServletRequest request,HttpServletResponse response){
+    public ServerResponse<String> logout(HttpSession session, HttpServletRequest request, HttpServletResponse response){
         String loginToken = CookieUtil.readLoginToken(request);
         CookieUtil.delLoginToken(request,response);
         RedisShardedPoolUtil.del(loginToken);
@@ -67,7 +67,7 @@ public class UserController {
 
     @RequestMapping(value = "check_valid.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<String> checkValid(String str,String type){
+    public ServerResponse<String> checkValid(String str, String type){
         return iUserService.checkValid(str,type);
     }
 
@@ -94,19 +94,19 @@ public class UserController {
 
     @RequestMapping(value = "forget_check_answer.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<String> forgetCheckAnswer(String username,String question,String answer){
+    public ServerResponse<String> forgetCheckAnswer(String username, String question, String answer){
         return iUserService.checkAnswer(username,question,answer);
     }
 
     @RequestMapping(value = "forget_reset_password.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<String> forgetRestPassword(String username,String passwordNew,String forgetToken){
+    public ServerResponse<String> forgetRestPassword(String username, String passwordNew, String forgetToken){
         return iUserService.forgetResetPassword(username,passwordNew,forgetToken);
     }
 
     @RequestMapping(value = "reset_password.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<String> resetPassword(HttpSession session,String passwordOld,String passwordNew,HttpServletRequest request){
+    public ServerResponse<String> resetPassword(HttpSession session, String passwordOld, String passwordNew, HttpServletRequest request){
         String loginToken = CookieUtil.readLoginToken(request);
         if (StringUtils.isEmpty(loginToken)){
             return ServerResponse.createByErrorMessage("用户未登陆，无法获取当前用户的信息");
@@ -119,7 +119,7 @@ public class UserController {
 
     @RequestMapping(value = "update_information.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<User> update_information(HttpSession session,User user,HttpServletRequest request){
+    public ServerResponse<User> update_information(HttpSession session, User user, HttpServletRequest request){
         String loginToken = CookieUtil.readLoginToken(request);
         if (StringUtils.isEmpty(loginToken)){
             return ServerResponse.createByErrorMessage("用户未登陆，无法获取当前用户的信息");
@@ -138,7 +138,7 @@ public class UserController {
 
     @RequestMapping(value = "get_information.do",method = RequestMethod.POST)
     @ResponseBody
-    public ServerResponse<User> get_information(HttpSession session,HttpServletRequest request){
+    public ServerResponse<User> get_information(HttpSession session, HttpServletRequest request){
         String loginToken = CookieUtil.readLoginToken(request);
         if (StringUtils.isEmpty(loginToken)){
             return ServerResponse.createByErrorMessage("用户未登陆，无法获取当前用户的信息");

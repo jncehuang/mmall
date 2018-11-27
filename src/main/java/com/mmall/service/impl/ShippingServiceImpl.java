@@ -34,7 +34,7 @@ public class ShippingServiceImpl implements IShippingService {
         return ServerResponse.createByErrorMessage("新建地址失败");
     }
 
-    public ServerResponse<String> del(Integer userId,Integer shippingId){
+    public ServerResponse<String> del(Integer userId, Integer shippingId){
         int resultCount = shippingMapper.deleteByShippingIdUserId(userId,shippingId);
         if(resultCount > 0){
             return ServerResponse.createBySuccess("删除地址成功");
@@ -61,7 +61,7 @@ public class ShippingServiceImpl implements IShippingService {
     }
 
 
-    public ServerResponse<PageInfo> list(Integer userId,int pageNum,int pageSize){
+    public ServerResponse<PageInfo> list(Integer userId, int pageNum, int pageSize){
         PageHelper.startPage(pageNum,pageSize);
         List<Shipping> shippingList = shippingMapper.selectByUserId(userId);
         PageInfo pageInfo = new PageInfo(shippingList);

@@ -76,7 +76,7 @@ public class CartController {
 
     @RequestMapping("delete_product.do")
     @ResponseBody
-    public ServerResponse<CartVo> deleteProduct(HttpServletRequest request,String productIds){
+    public ServerResponse<CartVo> deleteProduct(HttpServletRequest request, String productIds){
         String loginToken = CookieUtil.readLoginToken(request);
         if (StringUtils.isEmpty(loginToken)){
             return ServerResponse.createByErrorMessage("用户未登陆，无法获取当前用户的信息");
@@ -124,7 +124,7 @@ public class CartController {
 
     @RequestMapping("select.do")
     @ResponseBody
-    public ServerResponse<CartVo> select(HttpServletRequest request,Integer productId){
+    public ServerResponse<CartVo> select(HttpServletRequest request, Integer productId){
         String loginToken = CookieUtil.readLoginToken(request);
         if (StringUtils.isEmpty(loginToken)){
             return ServerResponse.createByErrorMessage("用户未登陆，无法获取当前用户的信息");
@@ -139,7 +139,7 @@ public class CartController {
 
     @RequestMapping("un_select.do")
     @ResponseBody
-    public ServerResponse<CartVo> unSelect(HttpServletRequest request,Integer productId){
+    public ServerResponse<CartVo> unSelect(HttpServletRequest request, Integer productId){
         String loginToken = CookieUtil.readLoginToken(request);
         if (StringUtils.isEmpty(loginToken)){
             return ServerResponse.createByErrorMessage("用户未登陆，无法获取当前用户的信息");
